@@ -1,6 +1,4 @@
 import requests
-
-# Function to fetch historical COVID-19 statistics
 def fetch_covid_stats():
     url = "https://disease.sh/v3/covid-19/historical/all?lastdays=all"
     response = requests.get(url)
@@ -14,8 +12,6 @@ def fetch_covid_stats():
         }
     else:
         return {"error": "Failed to retrieve data"}
-
-# Function to display COVID-19 statistics
 def display_stats(stats):
     if "error" in stats:
         print(stats["error"])
@@ -30,8 +26,6 @@ def display_stats(stats):
         print("\nDeaths:")
         for date, count in stats["deaths"].items():
             print(f"{date}: {count}")
-
-# Main function to interact with the user
 def main():
     print("Real-Time COVID-19 Historical Statistics Tracker")
     stats = fetch_covid_stats()
